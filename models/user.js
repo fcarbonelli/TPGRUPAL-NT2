@@ -34,9 +34,9 @@ const userSchema = new Schema({
         unique: 'Email already in use ({VALUE})', // el ({VALUE}) toma el String y lo concatena
         lowercase: true,
         validate(value) {
-                if(!validator.isEmail(value)) {
-                    throw new Error('Email is not valid')
-                }
+              if(!validator.isEmail(value)) {
+                  throw new Error('Email is not valid')
+              }
         }
     },
     profileImage: {
