@@ -7,6 +7,7 @@ const cors = require('cors');
 const dbConnect = require('./database');
 
 var usersRouter = require('./routes/users');
+var vehiclesRouter = require('./routes/vehicles');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.json({
 }));
 
 app.use('/api/v1', usersRouter);
+app.use('/api/v1', vehiclesRouter);
 
 /**
 * Esta ruta get * va a atrapar todos los req a rutas no existentes
