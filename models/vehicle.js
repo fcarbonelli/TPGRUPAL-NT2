@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 const vehicleSchema = new Schema({
     brand: {
         type: String, 
-        required: true, 
+        required: true,  
         trim: true, 
         lowercase: true,
         validate(value) { 
@@ -19,8 +19,8 @@ const vehicleSchema = new Schema({
     },
     model: {
         type: String,
-        minLenght: 2,
-        maxLength: 10,
+        minLenght: [2, 'Model must be at least 2 characters long'],
+        maxLength: [20, 'Model must be less than 20 characters long'],
         trim: true,
         lowercase: true,
         required: true,
@@ -32,24 +32,14 @@ const vehicleSchema = new Schema({
     },
     year: {
         type: Number,
-        baseYear: 1990,
-        currentYear: 2021,
+        min: [1990, 'Year must be greater than 1990'],
+        max: [new Date().getFullYear(), `Year must be less than current year`],
         required: true,      
-        validate(value) {
-              if(value < validator.baseYear || value > validator.currentYear) {
-                  throw new Error('The year must be between 1990 and 2021.')
-              }
-        }
     },
     kilometers: {
         type: Number,
-        minKm: 0,
+        min: [0, 'Km must be greater or equals to 0'],
         required: true,      
-        validate(value) {
-              if(value < validator.minKm) {
-                  throw new Error('Km must be above 0')
-              }
-        }
     },
     color: {
         type: String,
@@ -59,26 +49,30 @@ const vehicleSchema = new Schema({
     },
     doors: {
         type: Number,
-        enum: [2,3,4,5,6],
+        enum: {
+            values: [2,3,4,5,6],
+            message: '{VALUE} is not supported',
+        },
         required: false,
-        validate(value){
-            if (!this.enum.includes(value)) {
-                throw new Error('Door count must be between 2 and 6.')
-            }
-        }
-    }       
+    },
+    description: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        required: true,
+    }    
 }, {
     timestamps: true
 })
 
 vehicleSchema.plugin(beautifyUnique);
 
-vehicleSchema.methods.toJSON = function() {
-    const vehicle = this;
-    const vehicleObject = vehicle.toObject();  
+// vehicleSchema.methods.toJSON = function() {
+//     const vehicle = this;
+//     const vehicleObject = vehicle.toObject();  
 
-    return vehicleObject;
-}
+//     return vehicleObject;
+// }
 
 const Vehicle = mongoose.model('Vehicle', vehicleSchema); 
 

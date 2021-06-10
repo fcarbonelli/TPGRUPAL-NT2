@@ -14,22 +14,48 @@ const vehicleController = {
             res.status(400).json({ success: false, code: 400, message: error.message, error: error.errors });
         }
     }, 
-    getVehicles: async (req,res) => {
-
+    getVehicles: async (req, res) => {
+        try {
+            const vehicles = await Vehicle.find();
+            if(!vehicles.length) {
+                return res.status(404).json({ success: false, code: 404, message: 'Vehicles Not Found' });
+            }
+            res.json({ success: true, message: "Vehicles obtained successfully", vehicles });
+        } catch (error) {
+            res.status(400).json({ success: false, code: 400, message: error.message, error: error.errors });
+        }
     },
-    getVehicle: (req, res) => {
-        res.json(req.vehicle);
+    getVehicle: async (req, res) => {
+        const _id = req.params.id;
+        
+        try {
+            const vehicle = await Vehicle.findById(_id); 
+            if(!vehicle) {
+                return res.status(404).json({ success: false, code: 404, message: 'Vehicle Not Found' });
+            }
+            res.json({ success: true, message: "Vehicle obtained successfully", vehicle });
+        } catch (error) {
+            res.status(400).json({ success: false, code: 400, message: error.message, error: error.errors });
+        }
     },
     updateVehicle: (req, res) => {
         
     },
     deleteVehicle: async (req, res) => {
+        // Validar que el vehiculo le perteneza al usuario autenticado
+        const _id = req.params.id;
+
         try {
-            await req.vehicle.remove()
-            res.json(req.vehicle);
-        } catch (e) {
-            res.status(401).json(e);
+            const vehicle = await Vehicle.findById(_id);
+            if(!vehicle) {
+                return res.status(404).json({ success: false, code: 404, message: 'Vehicle Not Found' });
+            } 
+            await vehicle.remove();
+            res.status(200).json({success: true, message: "Vehicle deleted successfully"});
+        } catch (error) {
+            res.status(400).json({ success: false, code: 400, message: error.message });
         }
+
     }
 }
 
