@@ -6,6 +6,7 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation');
 const Schema = mongoose.Schema;
 
 const vehicleSchema = new Schema({
+   
     brand: {
         type: String, 
         required: true,  
@@ -17,6 +18,7 @@ const vehicleSchema = new Schema({
             }
         }
     },
+
     model: {
         type: String,
         minLenght: [2, 'Model must be at least 2 characters long'],
@@ -30,23 +32,27 @@ const vehicleSchema = new Schema({
             }
         } 
     },
+
     year: {
         type: Number,
         min: [1990, 'Year must be greater than 1990'],
         max: [new Date().getFullYear(), `Year must be less than current year`],
         required: true,      
     },
+
     kilometers: {
         type: Number,
         min: [0, 'Km must be greater or equals to 0'],
         required: true,      
     },
+
     color: {
         type: String,
         trim: true, 
         lowercase: true,
         required: false,             
     },
+
     doors: {
         type: Number,
         enum: {
@@ -55,6 +61,7 @@ const vehicleSchema = new Schema({
         },
         required: false,
     },
+    
     description: {
         type: String,
         trim: true,

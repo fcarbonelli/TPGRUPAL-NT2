@@ -15,5 +15,7 @@ router.post('/users/logoutAll', auth, userController.logoutAll);
 router.get('/users/me', auth, userController.getUser);
 // DELETE DEL USUARIO AUTENTICADO
 router.delete('/users/me', auth, userController.deleteAuthUser);
+// GET ALL USERS VEHICLES
+router.get('/users/vehicles', auth, userController.getAllUserVehicles);
 
 module.exports = router;

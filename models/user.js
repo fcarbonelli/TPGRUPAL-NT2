@@ -12,6 +12,7 @@ const beautifyUnique = require('mongoose-beautiful-unique-validation');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    
     name: {
         type: String, // tipo de dato
         required: true, // es requerido?
@@ -22,12 +23,14 @@ const userSchema = new Schema({
             }
         }
     },
+
     password: {
         type: String,
         minlength: 6,
         trim: true,
         required: [true, 'Password is required'] // de esta forma podemos poner mensajes personalizados en la respuesta
     },
+
     email: {
         type: String,
         required: true,
@@ -39,18 +42,27 @@ const userSchema = new Schema({
               }
         }
     },
+    
     profileImage: {
         type: String
     },
+
     dateOfBirth: {
         type: Date
     },
+
     tokens: [{
         token: {
             type: String,
             required: true
         } 
     }],
+
+    vehicles: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Vehicle"
+    }],
+
     admin: { // es admin ??
         type: Boolean,
         default: false

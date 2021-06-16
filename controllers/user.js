@@ -8,6 +8,7 @@ const User = require('../models/user');
  */
 
 const userController = {
+    
     createUser: async (req, res) => {
 
         // Creo una instancia de User con los datos que vienen por body
@@ -27,6 +28,7 @@ const userController = {
             res.status(400).json({ success: false, code: 400, message: error.message, error: error.errors });
         }
     },
+
     login: async (req, res) => {
 
         // el login lo que hace es buscar a un usuario de acuerdo 
@@ -43,6 +45,7 @@ const userController = {
             res.status(401).json(e);
         }
     },
+
     logout: async (req, res) => {
         // El logout lo que hace es buscar el token y eliminarlo
         // luego hace un user.save() para que esa modificación persista en la BD
@@ -58,6 +61,7 @@ const userController = {
             res.status(500).json();
         }
     },
+
     logoutAll: async (req, res) => {
         // el logoutAll elimina todos los tokens que tiene el usuario
         // esto hace que cierre sesion de todos los dipositivos
@@ -70,10 +74,12 @@ const userController = {
             res.status(500).json();
         }
     },
+
     getUser: (req, res) => {
         // esto solo devuelve el usuario
         res.json(req.user);
     },
+
     deleteAuthUser: async (req, res) => {
         // eliminamos el usuario en la BD
         try {
@@ -82,7 +88,17 @@ const userController = {
         } catch (e) {
             res.status(401).json(e);
         }
+    },
+
+    getAllUserVehicles: async (req, res) => {
+        try {
+            let populatedVehicles = await req.user.populate({path: 'vehicles', model: 'Vehicle'}).execPopulate();   
+            res.status(200).json(populatedVehicles);
+        } catch (e) {
+            res.status(400).send(e);
+        }
     }
+
 }
 
 module.exports = userController
