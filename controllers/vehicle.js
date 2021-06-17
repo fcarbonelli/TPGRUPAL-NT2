@@ -44,8 +44,14 @@ const vehicleController = {
         }
     },
 
-    updateVehicle: (req, res) => {
-        
+    updateVehicle: async (req, res) => {
+        const _id = req.params.id;
+        try {
+            await Vehicle.updateOne({ _id: _id }, req.body);
+            res.json({ success: true, message: "Vehicle updated successfully"});
+        } catch (error) {
+            res.status(400).json({ success: false, code: 400, message: error.message });
+        }
     },
 
     deleteVehicle: async (req, res) => {

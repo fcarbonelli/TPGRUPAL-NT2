@@ -7,7 +7,7 @@ const vehicleController = require('../controllers/vehicle');
 
 // CREAR VEHICULO (POST)
 router.post('/vehicles', auth, vehicleController.createVehicle);
-// TODOS LOS VEHICULOS (GET ALL)
+// ALL VEHICULOS (GET)
 router.get('/vehicles', vehicleController.getVehicles);
 // TRAER UN VEHICULO (GET)
 router.get('/vehicles/:id',  vehicleController.getVehicle);
