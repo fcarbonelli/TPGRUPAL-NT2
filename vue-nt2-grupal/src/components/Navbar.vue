@@ -9,16 +9,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <router-link class="nav-link active" to="/login">Login</router-link>
+          <router-link 
+            class="nav-link active" to="/login">Login
+          </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link active" to="/register">Registro</router-link>
+          <router-link 
+            class="nav-link active" to="/Registro">Registro
+          </router-link>
         </li>
          <li class="nav-item">
-          <router-link class="nav-link active" to="/vehicles">Vehiculos</router-link>
+          <router-link 
+            class="nav-link active" to="/vehicles">Vehiculos
+          </router-link>
         </li>
          <li class="nav-item">
-          <router-link class="nav-link active" to="/logout">Logout</router-link>
+          <router-link 
+            class="nav-link active" to="/logout">Logout
+          </router-link>
         </li>
       </ul>
       <form class="d-flex">
