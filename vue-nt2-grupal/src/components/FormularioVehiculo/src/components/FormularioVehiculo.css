@@ -1,0 +1,16 @@
+.src-components-formulario {
+
+}
+.jumbotron{
+    background-color: rgb(211, 209, 209);
+    color: rgb(0, 0, 0);
+    padding: 32px !important;
+    
+  }
+  button{
+    background-color: cornflowerblue;
+    color:rgb(8, 4, 4);
+  }
+  button:hover{
+    background-color: rgb(52, 52, 241);
+  }

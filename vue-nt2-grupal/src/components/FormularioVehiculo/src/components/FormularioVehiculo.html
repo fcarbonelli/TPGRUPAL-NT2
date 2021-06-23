@@ -1,0 +1,199 @@
+
+<section class="src-components-formulario">
+  <div class="jumbotron">
+    <h2> Formulario Vehiculos</h2>
+
+    <hr>
+    <br>
+
+    <vue-form :state="formState" @submit.prevent="enviar()">
+
+      <!--BRAND-->
+      <validate tag="div"> 
+        <label for="brand">Brand</label>
+          <input 
+            type="text"
+            id="brand"
+            name="brand"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim = "formData.brand"
+            required
+            :minlength="stringMinLength"  
+            :maxlength="stringMaxLength"
+            no-espacios
+          >    
+          <field-messages name="brand" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido </div>
+            <div slot="minlength" class="alert alert-danger mt-1">
+              Requiere {{ stringMinLength}} caracteres </div>
+            <div v-if="formData.brand.length == stringMaxLength" class="alert alert-warning mt-1">
+              Maximo {{ stringMaxLength }} caracteres  </div>
+            <div slot="no-espacios" class="alert alert-danger mt-1">
+              No se permiten espacios intermedios en este campo
+            </div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--MODEL-->
+      <validate tag="div"> 
+        <label for="model">Model</label>
+          <input 
+            type="text"
+            id="model"
+            name="model"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim = "formData.model" 
+            required   
+            :minlength="stringMinLength"  
+            :maxlength="stringMaxLength"
+            no-espacios         
+          >        
+          <field-messages name="model" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido </div>
+            <div slot="minlength" class="alert alert-danger mt-1">
+              Requiere {{ stringMinLength }} caracteres </div>
+            <div v-if="formData.model.length == stringMaxLength" class="alert alert-warning mt-1">
+              Maximo {{stringMaxLength}} caracteres  </div>
+            <div slot="no-espacios" class="alert alert-danger mt-1">
+              No se permiten espacios intermedios en este campo
+            </div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--YEAR-->
+      <validate tag="div"> 
+        <label for="year">Year</label>
+          <input 
+            type="number"
+            id="year"
+            name="year"
+            class="form-control"
+            autocomplete="off"
+            v-model.number = "formData.year"
+            required  
+            min="1990"
+            max="2021" 
+          >    
+          <field-messages name="year" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido</div>
+            <div slot="min" class="alert alert-danger mt-1">
+              El año debe ser mayor a 1990</div>
+            <div slot="max" class="alert alert-danger mt-1">
+              El año no puede ser mayor al año actual</div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--KILOMETERS-->
+      <validate tag="div"> 
+        <label for="kilometers">Kilometers</label>
+          <input 
+            type="number"
+            id="kilometers"
+            name="kilometers"
+            class="form-control"
+            autocomplete="off"
+            v-model.number = "formData.kilometers"
+            required  
+            min="0"
+          >    
+          <field-messages name="kilometers" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido</div>
+            <div slot="min" class="alert alert-danger mt-1">
+              Los kilometros ingresados no pueden ser menor a 0</div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--COLOR-->
+      <validate tag="div"> 
+        <label for="color">Color</label>
+          <input 
+            type="text"
+            id="color"
+            name="color"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim = "formData.color" 
+            required   
+            :minlength="stringMinLength"  
+            :maxlength="stringMaxLength"
+            no-espacios         
+          >        
+          <field-messages name="color" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido </div>
+            <div slot="minlength" class="alert alert-danger mt-1">
+              Requiere {{ stringMinLength }} caracteres </div>
+            <div v-if="formData.color.length == stringMaxLength" class="alert alert-warning mt-1">
+              Maximo {{stringMaxLength}} caracteres  </div>
+            <div slot="no-espacios" class="alert alert-danger mt-1">
+              No se permiten espacios intermedios en este campo
+            </div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--DOORS-->
+      <validate tag="div"> 
+        <label for="doors">Doors</label>
+          <input 
+            type="number"
+            id="doors"
+            name="doors"
+            class="form-control"
+            autocomplete="off"
+            v-model.number = "formData.doors"
+            required  
+            min="2"
+            max="6"
+          >    
+          <field-messages name="doors" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido</div>
+            <div slot="min" class="alert alert-danger mt-1">
+              La cantidad minima de puertas es 2</div>
+            <div slot="max" class="alert alert-danger mt-1">
+              La cantidad maxima de puertas es 6</div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <!--DESCRIPCION-->
+      <validate tag="div"> 
+        <label for="description">Descripcion</label>
+          <input 
+            type="text"
+            id="description"
+            name="description"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim = "formData.description" 
+            required   
+            :minlength="stringMinLength"           
+          >        
+          <field-messages name="description" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido </div>
+            <div slot="minlength" class="alert alert-danger mt-1">
+              Requiere {{ stringMinLength }} caracteres </div>
+          </field-messages>
+      </validate>
+      <br>
+
+      <button class="btn btn-succeds my-3" :disabled="formState.$invalid" type="submit"> Enviar </button>
+    </vue-form>
+
+    
+    
+  </div>
+</section>
+
