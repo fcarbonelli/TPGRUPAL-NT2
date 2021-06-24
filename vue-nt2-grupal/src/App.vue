@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container-fluid mt-3">
+  <div class="container-fluid mt-3">
     <div class="jumbotron">
       <Navbar />
       <router-view/>
@@ -19,10 +19,3 @@
   }
 
 </script>
-
-<style>
-#app {
-  
-}
-
-</style>

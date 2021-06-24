@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item">
           <router-link 
-            class="nav-link active" to="/Registro">Registro
+            class="nav-link active" to="/registro">Registro
           </router-link>
         </li>
          <li class="nav-item">
