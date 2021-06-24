@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const URL = '';
 
-export default vehicleModule = {
+const vehicleModule = {
 
   state: {
     vehicles: [],
@@ -38,3 +38,5 @@ export default vehicleModule = {
   }
 
 }
+
+export default vehicleModule;

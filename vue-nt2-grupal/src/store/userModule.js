@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const URL = '';
 
-export default userModule = {
+const userModule = {
 
   state: {
     users: [],
@@ -38,3 +38,5 @@ export default userModule = {
   }
 
 }
+
+export default userModule;

@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import userModule from './userModule';
-import vehicleModule from './vehicleModule';
+import vehicleModule from './userModule';
+
 
 Vue.use(Vuex);
 
