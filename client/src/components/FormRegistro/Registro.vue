@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="jumbotron">
     <h2>Registro</h2>
+
+    <hr>
+    <br>
+
     <vue-form :state="formState" @submit.prevent="enviar()">
 
       <validate tag="div">
@@ -24,6 +28,8 @@
         </field-messages>
       </validate>
 
+      <br>
+
       <validate tag="div">
         <label for="apellido">Apellido</label>
         <input class="form-control" 
@@ -45,6 +51,8 @@
         </field-messages>
       </validate>
 
+      <br>
+
       <validate tag="div">
         <label for="nota">DNI</label>
         <input class="form-control" 
@@ -59,6 +67,8 @@
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>
       </validate>
+
+      <br>
 
       <validate tag="div">
         <label for="edad">Edad</label>
@@ -78,6 +88,8 @@
         </field-messages>
       </validate>
 
+      <br>
+
       <validate tag="div">
         <label for="domicilio">Domicilio</label>
         <input class="form-control" 
@@ -92,6 +104,8 @@
           <div slot="required" class="alert alert-danger mt-1">Campo requerido</div>
         </field-messages>
       </validate>
+
+      <br>
 
       <validate tag="div">
           <label for="email">Email</label>
@@ -110,6 +124,8 @@
           </field-messages>
        </validate>
 
+       <br>
+
     <validate tag="div">
           <label for="password">Contraseña</label>
           <input 
@@ -125,6 +141,8 @@
             <div slot="required" class="alert alert-danger">Campo requerido!</div>                       
           </field-messages>
        </validate>
+
+       <br>
 
       <button class="btn btn-success my-3" :disabled="formState.$invalid" type="submit">Enviar</button>
     </vue-form>
@@ -172,11 +190,13 @@ export default {
 </script>
 
 <style scoped lang="css">
-.jumbotron {
-  background-color: rgb(9, 9, 128);
-  color: white;
-}
+.jumbotron{
+    background-color: rgb(211, 209, 209);
+    color: rgb(0, 0, 0);
+    padding: 32px !important;
+    
+  }
 hr {
-  background-color: #eee;
+  background-color:black;
 }
 </style>

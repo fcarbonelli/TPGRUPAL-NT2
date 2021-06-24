@@ -1,6 +1,10 @@
 <template lang="html">
   <div class="jumbotron">
     <h2>Login</h2>
+
+    <hr>
+    <br>
+
     <vue-form :state="formState" @submit.prevent="enviar()">
 
       <validate tag="div">
@@ -19,6 +23,8 @@
             <div slot="email" class="alert alert-danger mt-1">Email no válido</div>            
           </field-messages>
        </validate>
+
+       <br>
 
     <validate tag="div">
           <label for="password">Contraseña</label>
@@ -74,11 +80,13 @@ export default {
 </script>
 
 <style scoped lang="css">
-.jumbotron {
-  background-color: rgb(196, 224, 37);
-  color: black;
-}
+.jumbotron{
+    background-color: rgb(211, 209, 209);
+    color: rgb(0, 0, 0);
+    padding: 32px !important;
+    
+  }
 hr {
-  background-color: #eee;
+  background-color:black;
 }
 </style>
