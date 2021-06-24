@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = '';
+const URL = 'http://localhost:3000/vehicles';
 
 const vehicleModule = {
 
