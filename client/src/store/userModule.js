@@ -17,7 +17,7 @@ const userModule = {
 
           localStorage.setItem('token', data.token);
 
-          if(user) {
+          if(data) {
             commit('setIsAuthenticated', true);
             commit('saveUser', data);
             return true;
@@ -59,7 +59,7 @@ const userModule = {
           console.log(error);
       }
     },
-    async checkTokenExists() {
+    async checkTokenExists({commit}) {
       const token = localStorage.getItem('token');
       if(token) {
           try {
