@@ -52,7 +52,7 @@ const userModule = {
 
           localStorage.removeItem('token');
 
-          commit('setIsAuthenticated', true);
+          commit('setIsAuthenticated', false);
           commit('saveUser', {});
 
       } catch (error) {
