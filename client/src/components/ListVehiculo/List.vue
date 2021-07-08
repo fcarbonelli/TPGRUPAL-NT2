@@ -1,28 +1,32 @@
 <template>
-  <tr v-for="(vehicle, i) in vehicles" : key="i">
-    <Card CardTitle:{{vehicle.model}} - {{vehicle.year}}cardText: {{vehicle.description}}/>
+<div>
+  <tr v-for="(vehicle, i) in this.$store.state.v.vehicles" :key="i">
+    <Card :vehicleData="vehicle" />
   </tr>
+</div>
 </template>
 
 <script lang="js">
-import vehicleModule from '../../store/vehicleModule'
-import Card from '../CardVehiculo/Card'
+import Card from "../CardVehiculo/Card.vue"
 export default {
   name: 'src-components-cardVehiculo-card',
   components: {
-    cardList: Card
+    Card,
   },
   props: [],
   data() {
     return {
-      vehicleData: this.listVehicles(),
+      
     }
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    this.listVehicles()
+    console.log("BLABLA ",this.listVehicles());
+  },
   methods: {
     listVehicles: function() {
-      vehicleModule.actions.getVehicles();
+      this.$store.dispatch("v/getVehicles");
     }
   }
 }
