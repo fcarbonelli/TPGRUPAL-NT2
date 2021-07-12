@@ -1,13 +1,18 @@
 <template>
-  <div class="card" style="width: 18rem;" @click="clicked('No hay información del vehiculo por el momento')">
-    <img src="" class="card-img-top" alt="" />
-    <div class="card-body">
-      <h5 class="card-title">{{ vehicleData.model | capitalize}}</h5>
-      <p class="card-text">
-        {{ vehicleData.year }}
-      </p>
+
+  <div class="card-deck">
+    <div class="card" :style="{ width: '18rem' }" @click="clicked('No hay información del vehiculo por el momento')">
+      <img src="../../assets/fitito.webp" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ vehicleData.brand | capitalize }} {{ vehicleData.model | capitalize }} </h5>
+        <p class="card-text">{{ vehicleData.year }}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ vehicleData.kilometers + ' kms'}}</small>
+      </div>
     </div>
   </div>
+  
 </template>
 
 <script lang="js">
