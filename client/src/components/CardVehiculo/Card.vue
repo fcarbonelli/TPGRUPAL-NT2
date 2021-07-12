@@ -2,7 +2,7 @@
   <div class="card" style="width: 18rem;">
     <img src="" class="card-img-top" alt="" />
     <div class="card-body">
-      <h5 class="card-title">{{ vehicleData.model }}</h5>
+      <h5 class="card-title">{{ vehicleData.model | capitalize}}</h5>
       <p class="card-text">
         {{ vehicleData.year }}
       </p>
@@ -18,6 +18,13 @@ export default {
   props: ["vehicleData"],
   data() {
     return {}
+  },
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
   },
   computed: {},
   mounted() {},
