@@ -44,7 +44,7 @@ const vehicleModule = {
 
   mutations: {
     getVehicles(state, data) {
-      state.vehicles = data;
+      state.vehicles = [...state.vehicles, ...data];
     },
     postVehicle(state, vehicleData) {
       state.vehicles = [...state.vehicles, vehicleData];

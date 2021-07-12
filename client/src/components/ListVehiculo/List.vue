@@ -1,6 +1,6 @@
 <template>
 <div>
-  <tr v-for="(vehicle, i) in this.$store.state.v.vehicles" :key="i">
+  <tr v-for="(vehicle, i) in vehicleList" :key="i">
     <Card :vehicleData="vehicle" />
   </tr>
 </div>
@@ -19,10 +19,13 @@ export default {
       
     }
   },
-  computed: {},
+  computed: {
+    vehicleList: function() {
+      return this.$store.state.v.vehicles;
+    }
+  },
   mounted() {
     this.listVehicles()
-    console.log("BLABLA ",this.listVehicles());
   },
   methods: {
     listVehicles: function() {
