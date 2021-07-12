@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem;" @click="clicked('No hay información del vehiculo por el momento')">
     <img src="" class="card-img-top" alt="" />
     <div class="card-body">
       <h5 class="card-title">{{ vehicleData.model | capitalize}}</h5>
@@ -12,10 +12,13 @@
 
 <script lang="js">
 
+import alertMixin from "../../mixins/alertMixin";
+
 export default {
   name: 'Card',
   components: {},
   props: ["vehicleData"],
+  mixins: [alertMixin],
   data() {
     return {}
   },
