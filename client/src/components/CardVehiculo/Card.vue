@@ -1,7 +1,7 @@
 <template>
 
-  <div class="card-deck">
-    <div class="card" :style="{ width: '18rem' }" @click="clicked('No hay información del vehiculo por el momento')">
+    <div class="col">
+    <div class="card" @click="clicked('No hay información del vehiculo por el momento')">
       <img src="../../assets/fitito.webp" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{ vehicleData.brand | capitalize }} {{ vehicleData.model | capitalize }} </h5>
@@ -11,7 +11,7 @@
         <small class="text-muted">{{ vehicleData.kilometers + ' kms'}}</small>
       </div>
     </div>
-  </div>
+    </div>
   
 </template>
 

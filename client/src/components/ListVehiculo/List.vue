@@ -1,8 +1,8 @@
 <template>
 <div>
-  <tr v-for="(vehicle, i) in vehicleList" :key="i">
-    <Card :vehicleData="vehicle" />
-  </tr>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <Card :vehicleData="vehicle" v-for="(vehicle, i) in vehicleList" :key="i" />
+  </div>
 </div>
 </template>
 
