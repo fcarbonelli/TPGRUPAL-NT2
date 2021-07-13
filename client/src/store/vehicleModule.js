@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3000/vehicles';
+const URL = 'http://localhost:3000/api/v1/vehicles';
 
 const vehicleModule = {
 
+  namespaced: true,
   state: {
     vehicles: [],
   },
@@ -11,8 +12,9 @@ const vehicleModule = {
   actions: {
     async getVehicles({commit}) {
       try {
-        let { data } = await axios(URL);
-        commit('getVehicles', data);
+        let data = await axios(URL);
+        console.log(data.data.vehicles)
+        commit('getVehicles', data.data.vehicles);
       } catch(e) {
         console.log(e);
       }
@@ -42,7 +44,7 @@ const vehicleModule = {
 
   mutations: {
     getVehicles(state, data) {
-      state.vehicles = data;
+      state.vehicles = [...state.vehicles, ...data];
     },
     postVehicle(state, vehicleData) {
       state.vehicles = [...state.vehicles, vehicleData];

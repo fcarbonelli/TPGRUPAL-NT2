@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3000/users';
+const URL = 'http://localhost:3000/api/v1/users';
 
 const userModule = {
-
+  
+  namespaced: true,
   state: {
     users: [],
     user: {},

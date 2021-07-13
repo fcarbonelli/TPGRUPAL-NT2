@@ -1,8 +1,7 @@
 # Taller de Programación 2
 
-Foobar is a Python library for dealing with word pluralization.
 
-## Descripción del proyecto (5 lineas)
+## Descripción del proyecto
 
 La idea de este proyecto consiste en desarrollar una plataforma web para comprar y vender vehículos, tanto usados como 0km.
 Esta propuesta consiste en generar una relación de User-Vehiculo y a partir de dicha relación generar las bases y funciones necesarias
@@ -10,7 +9,6 @@ para el proyecto y para cada una de las entidades provistas.
 A su vez, éstas estarán conformadas por campos/propiedades que posibilitarás realizar las operaciones principales de una API REST, 
 pero modeladas a partir de las necesidades del proyecto.
 
-#### Listado de funcionalidades (casos de uso)
 
 #### Listado de roles 
 
