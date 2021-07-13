@@ -1,7 +1,5 @@
 <template>
-  <!-- <footer class="">
-    <p class="text-right">Copyright &copy; 1990-2014 Peter Doe, todos los derechos reservados.</p>
-  </footer> -->
+ 
   <footer class="bg-dark text-white">
     <div class="container-fluid">
       <nav class="row">
@@ -17,7 +15,9 @@
           <li class="fw-normal"><small>Axel Podostrojec</small></li>
           <li class="fw-normal"><small>Lautaro Robles</small></li>
           <li class="fw-normal"><small>Francisco Carbonelli</small></li>
-          <li class="fw-normal"><small>Onnig Pannosiang</small></li>
+          <li class="fw-normal"><small>Onnig Pannosian</small></li>
+          <li class="fw-normal"><small>Ivo Stipicic</small></li>
+
         </ul>
         <ul class="col-3 list-unstyled">
           <li class="fw-bold text-uppercase fs-5 ">Redes sociales</li>
